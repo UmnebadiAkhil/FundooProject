@@ -1,0 +1,13 @@
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.deps.json
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\bin\Debug\netcoreapp3.1\CommonLayer.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\bin\Debug\netcoreapp3.1\CommonLayer.pdb
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP\FundooNote\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
