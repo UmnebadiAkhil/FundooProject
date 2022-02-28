@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Experimental.System.Messaging/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Experimental.System.Messaging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Experimental.System.Messaging.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "compile": {
@@ -1347,6 +1356,9 @@
       "CommonLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Experimental.System.Messaging": "1.1.0"
+        },
         "compile": {
           "bin/placeholder/CommonLayer.dll": {}
         },
@@ -1357,6 +1369,20 @@
     }
   },
   "libraries": {
+    "Experimental.System.Messaging/1.1.0": {
+      "sha512": "vub7Mtt2WFdFKTZKECVuZx6feP5kUpS9EfVy+Yu4GDfdlMwivRdX4TbdkDYS2lKqCjqzUbnxTbJei1IOqC+CnA==",
+      "type": "package",
+      "path": "experimental.system.messaging/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "experimental.system.messaging.1.1.0.nupkg.sha512",
+        "experimental.system.messaging.nuspec",
+        "lib/netstandard2.0/Experimental.System.Messaging.dll",
+        "lib/netstandard2.0/Experimental.System.Messaging.xml"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
       "type": "package",
@@ -5223,11 +5249,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akhil\\source\\repos\\FundooProject\\RepositoryLayer\\RepositoryLayer.csproj",
+      "projectUniqueName": "C:\\Users\\akhil\\OneDrive\\Desktop\\TerminalCommands\\CFP_Git\\FundooProject\\FundooProject\\RepositoryLayer\\RepositoryLayer.csproj",
       "projectName": "RepositoryLayer",
-      "projectPath": "C:\\Users\\akhil\\source\\repos\\FundooProject\\RepositoryLayer\\RepositoryLayer.csproj",
+      "projectPath": "C:\\Users\\akhil\\OneDrive\\Desktop\\TerminalCommands\\CFP_Git\\FundooProject\\FundooProject\\RepositoryLayer\\RepositoryLayer.csproj",
       "packagesPath": "C:\\Users\\akhil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akhil\\source\\repos\\FundooProject\\RepositoryLayer\\obj\\",
+      "outputPath": "C:\\Users\\akhil\\OneDrive\\Desktop\\TerminalCommands\\CFP_Git\\FundooProject\\FundooProject\\RepositoryLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5248,8 +5274,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\akhil\\source\\repos\\FundooProject\\CommonLayer\\CommonLayer.csproj": {
-              "projectPath": "C:\\Users\\akhil\\source\\repos\\FundooProject\\CommonLayer\\CommonLayer.csproj"
+            "C:\\Users\\akhil\\OneDrive\\Desktop\\TerminalCommands\\CFP_Git\\FundooProject\\FundooProject\\CommonLayer\\CommonLayer.csproj": {
+              "projectPath": "C:\\Users\\akhil\\OneDrive\\Desktop\\TerminalCommands\\CFP_Git\\FundooProject\\FundooProject\\CommonLayer\\CommonLayer.csproj"
             }
           }
         }
