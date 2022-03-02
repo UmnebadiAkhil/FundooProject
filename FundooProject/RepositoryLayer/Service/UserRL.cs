@@ -88,6 +88,7 @@ namespace RepositoryLayer.Service
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        // User ForgotPasssword
         public string ForgetPassword(string email)
         {
             try
@@ -102,6 +103,31 @@ namespace RepositoryLayer.Service
                 else
                 {
                     return null;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        // User ResetPasssword
+        public bool ResetPassword(string email, string password, string newPassword)
+        {
+            try
+            {
+               
+                if (password.Equals(newPassword))
+                {
+                    var user = this.fundooContext.UserTable.Where(E => E.Email == email).FirstOrDefault();
+                    user.Password = newPassword;
+                    fundooContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             catch (Exception)
