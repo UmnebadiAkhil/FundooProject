@@ -117,3 +117,8 @@ C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooPro
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\obj\Debug\netcoreapp3.1\FundooProject.dll
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\obj\Debug\netcoreapp3.1\FundooProject.pdb
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\obj\Debug\netcoreapp3.1\FundooProject.genruntimeconfig.cache
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll

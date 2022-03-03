@@ -38,6 +38,8 @@ namespace FundooProject
             services.AddControllers();
             services.AddTransient<IUserBL, UserBL>();
             services.AddTransient<IUserRL, UserRL>();
+            services.AddTransient<INoteBL, NoteBL>();
+            services.AddTransient<INoteRL, NoteRL>();
             //Adding Swagger in Services Collection.
             services.AddSwaggerGen(c =>
             {

@@ -56,6 +56,7 @@ namespace FundooProject.Controllers
             }
         }
 
+        
         [HttpPost("ForgetPassword")]
         public IActionResult ForgetPassword(string email)
         {
@@ -81,8 +82,7 @@ namespace FundooProject.Controllers
             try
             {
                 var email = User.FindFirst(ClaimTypes.Email).Value.ToString();
-                var result = userBL.ResetPassword(email, password, newPassword);
-                if (result != null)
+                if (userBL.ResetPassword(email, password, newPassword))
                     return this.Ok(new { Success = true, message = "Password updated sucessfully"});
                 else
                     return this.BadRequest(new { Success = false, message = "Unable to reset password. Please try again!" });
