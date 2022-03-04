@@ -41,6 +41,8 @@ namespace FundooProject
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<ICollaborationBL, CollaborationBL>();
+            services.AddTransient<ICollaborationRL, CollaborationRL>();
             services.AddTransient<IFileService, FileService>();
             //Adding Swagger in Services Collection.
             services.AddSwaggerGen(c =>

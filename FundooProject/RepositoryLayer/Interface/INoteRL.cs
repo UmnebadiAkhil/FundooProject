@@ -20,5 +20,6 @@ namespace RepositoryLayer.Interface
         public List<Notes> GetTrash(long userId);
         public List<Notes> GetArchived(long userId);
         public Notes AddImage(long noteId, long userId, IFormFile formFile);
+        public Notes GetNoteId(long noteId, long userId);
     }
 }

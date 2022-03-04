@@ -309,6 +309,14 @@ namespace RepositoryLayer.Service
             }
         }
 
+        //Method to GetNoteId Details.
+        public Notes GetNoteId(long noteId, long userId)
+        {
+            var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId);
 
+            return result;
+        }
+
+        
     }
 }

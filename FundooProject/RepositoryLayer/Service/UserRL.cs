@@ -136,5 +136,12 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
+
+        public User GetEmail(string email)
+        {
+            var result = fundooContext.UserTable.FirstOrDefault(e => e.Email == email);
+
+            return result;
+        }
     }
 }

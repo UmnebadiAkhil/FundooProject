@@ -31,7 +31,7 @@ namespace FundooProject.Controllers
 
         //Create a Note
         [Authorize]
-        [HttpPost("CreateNote")]
+        [HttpPost("Create")]
         public IActionResult CreateNote(Note note)
         {
             try
@@ -52,7 +52,7 @@ namespace FundooProject.Controllers
 
         //Update a Note
         [Authorize]
-        [HttpPut("UpdateNote")]
+        [HttpPut("Update")]
         public IActionResult UpdateNote(UpdateNote note, long noteId)
         {
             try
@@ -70,7 +70,7 @@ namespace FundooProject.Controllers
         }
         //Delete note
         [Authorize]
-        [HttpDelete("DeleteNotes")]
+        [HttpDelete("Delete")]
         public IActionResult DeleteNotes(long id,long noteId)
         {
             try
@@ -88,7 +88,7 @@ namespace FundooProject.Controllers
 
         //Retrieve note
         [Authorize]
-        [HttpGet("RetrieveAllNotes")]
+        [HttpGet("Retrieve")]
         public IActionResult RetrieveAllNotes(long id)
         {
             try
@@ -132,7 +132,7 @@ namespace FundooProject.Controllers
 
         //IsArchieve
         [Authorize]
-        [HttpGet("Archived")]
+        [HttpPut("Archived")]
         public IActionResult GetArchived()
         {
             try
@@ -161,7 +161,7 @@ namespace FundooProject.Controllers
 
         //IsTrashed 
         [Authorize]
-        [HttpGet("Trashed")]
+        [HttpPut("Trashed")]
         public IActionResult GetTrash()
         {
             try
@@ -190,7 +190,7 @@ namespace FundooProject.Controllers
 
         //IsPinned
         [Authorize]
-        [HttpGet("Pin")]
+        [HttpPut("Pin")]
         public IActionResult IsPinned(long noteId)
         {
             long userId = GetTokenId();
@@ -215,7 +215,7 @@ namespace FundooProject.Controllers
 
         //Upload Image
         [Authorize]
-        [HttpPost("UploadImage")]
+        [HttpPost("Upload")]
         public IActionResult AddImage(long noteId, IFormFile formFile )
         {
             try

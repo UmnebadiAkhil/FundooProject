@@ -75,7 +75,7 @@ namespace FundooProject.Controllers
         }
 
         [Authorize]
-        [HttpPost("ResetPassword")]
+        [HttpPut("ResetPassword")]
    
         public IActionResult ResetPassword( string password, string newPassword)
         {
