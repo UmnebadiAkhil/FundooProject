@@ -122,3 +122,15 @@ C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooPro
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
 C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.WebEncoders.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\BoDi.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Gherkin.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.dll
+C:\Users\akhil\OneDrive\Desktop\TerminalCommands\CFP_Git\FundooProject\FundooProject\FundooProject\bin\Debug\netcoreapp3.1\SpecFlow.Internal.Json.dll

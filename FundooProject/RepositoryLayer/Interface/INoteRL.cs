@@ -1,4 +1,5 @@
 ﻿using CommonLayer.Model;
+using Microsoft.AspNetCore.Http;
 using RepositoryLayer.Entity;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,11 @@ namespace RepositoryLayer.Interface
         public bool DeleteNotes(long id, long noteId);
         public IEnumerable<Notes> RetrieveAllNotes(long userId);
         public bool ChangeColor(long noteId, long userId, Note notesModel);
+        public bool IsPinned(long noteId, long userId);
+        public bool IsTrash(long noteId, long userId);
+        public bool IsArchive(long noteId, long userId);
+        public List<Notes> GetTrash(long userId);
+        public List<Notes> GetArchived(long userId);
+        public bool AddImage(long noteId, long userId, IFormFile formFile);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Interface;
 using CommonLayer.Model;
+using Microsoft.AspNetCore.Http;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Interface;
 using System;
@@ -83,5 +84,78 @@ namespace BusinessLayer.Service
                 throw;
             }
         }
+
+        public bool IsPinned(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.IsPinned(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool IsTrash(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.IsTrash(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool IsArchive(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.IsArchive(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Notes> GetTrash(long userId)
+        {
+            try
+            {
+                return noteRL.GetTrash(userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+       
+        public List<Notes> GetArchived(long userId)
+        {
+            try
+            {
+                return noteRL.GetArchived(userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool AddImage(long noteId, long userId, IFormFile formFile)
+        {
+            try
+            {
+                return noteRL.AddImage(noteId, userId, formFile);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

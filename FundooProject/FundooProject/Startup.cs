@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow.Analytics.UserId;
 
 namespace FundooProject
 {
@@ -40,6 +41,7 @@ namespace FundooProject
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<IFileService, FileService>();
             //Adding Swagger in Services Collection.
             services.AddSwaggerGen(c =>
             {

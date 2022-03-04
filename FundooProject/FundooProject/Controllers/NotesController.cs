@@ -104,8 +104,9 @@ namespace FundooProject.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("{noteId}/Colour")]
+        //Change colour
+        [Authorize]
+        [HttpPut("Colour")]
         public IActionResult ChangeColor(long noteId, Note notesModel)
         {
             long userId = GetTokenId();
@@ -127,5 +128,114 @@ namespace FundooProject.Controllers
                 return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
             }
         }
+
+        //IsArchieve
+        [Authorize]
+        [HttpGet("Archived")]
+        public IActionResult GetArchived()
+        {
+            try
+            {
+                long userId = GetTokenId();
+                var archivedList = noteBL.GetArchived(userId);
+
+                if (archivedList.Count != 0)
+                {
+                    return this.Ok(new { Success = true, message = "These are your Archived Notes.", Data = archivedList });
+                }
+                else if (archivedList.Count == 0)
+                {
+                    return Ok(new { Success = true, message = "There are no Archived notes." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Something went wrong." });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
+
+        //IsTrashed 
+        [Authorize]
+        [HttpGet("Trashed")]
+        public IActionResult GetTrash()
+        {
+            try
+            {
+                long userId = GetTokenId();
+                var trashList = noteBL.GetTrash(userId);
+
+                if (trashList.Count != 0)
+                {
+                    return this.Ok(new { Success = true, message = "These are your Trashed Notes.", Data = trashList });
+                }
+                else if (trashList.Count == 0)
+                {
+                    return Ok(new { Success = true, message = "There are no trashed notes." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Something went wrong." });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
+
+        //IsPinned
+        [Authorize]
+        [HttpGet("Pin")]
+        public IActionResult IsPinned(long noteId)
+        {
+            long userId = GetTokenId();
+            bool result = noteBL.IsPinned(noteId, userId);
+
+            try
+            {
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Successful" });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Unsuccessful" });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Upload Image
+        [Authorize]
+        [HttpPost("UploadImage")]
+        public IActionResult AddImage(long noteId, IFormFile formFile)
+        {
+            try
+            {
+                long userId = GetTokenId();
+                bool result = noteBL.AddImage(noteId, userId, formFile);
+
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Image added Successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Failed to add image." });
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
-}
+ }
+
