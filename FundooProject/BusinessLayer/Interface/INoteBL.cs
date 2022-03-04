@@ -19,6 +19,6 @@ namespace BusinessLayer.Interface
         public bool IsPinned(long noteId, long userId);
         public List<Notes> GetTrash(long userId);
         public List<Notes> GetArchived(long userId);
-        public bool AddImage(long noteId, long userId, IFormFile formFile);
+        public Notes AddImage(long noteId, long userId, IFormFile formFile);
     }
 }

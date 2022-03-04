@@ -145,7 +145,7 @@ namespace BusinessLayer.Service
             }
         }
 
-        public bool AddImage(long noteId, long userId, IFormFile formFile)
+        public Notes AddImage(long noteId, long userId, IFormFile formFile)
         {
             try
             {

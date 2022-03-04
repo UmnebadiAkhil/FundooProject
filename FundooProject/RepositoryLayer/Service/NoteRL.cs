@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RepositoryLayer.Service
 {
@@ -272,7 +273,7 @@ namespace RepositoryLayer.Service
         }
 
         //Method to AddImage Details.
-        public bool AddImage(long noteId, long userId, IFormFile formFile)
+        public Notes AddImage(long noteId, long userId, IFormFile formFile)
         {
             try
             {
@@ -285,18 +286,22 @@ namespace RepositoryLayer.Service
                                                   _config["CloudinaryAccount:ApiSecret"]);
 
                     Cloudinary cloudinary = new Cloudinary(account);
+                    var imagePath = formFile.OpenReadStream();
                     var uploadParams = new ImageUploadParams()
                     {
-                        File = new FileDescription(formFile.FileName, formFile.OpenReadStream()),
+                        File = new FileDescription(formFile.FileName, imagePath),
                     };
                     var uploadResult = cloudinary.Upload(uploadParams);
-                    Uri x = uploadResult.Url;
-                    result.Image = x.ToString();
-                    fundooContext.SaveChanges();
-                    return true;
+                    result.Image = formFile.FileName;
+                    fundooContext.NotesTable.Update(result);
+                    int upload = fundooContext.SaveChanges();
+                    if (upload > 0)
+                        return result;
+                    else
+                        return null;
                 }
-                
-                return false;
+                else
+                    return null;
             }
             catch (Exception)
             {

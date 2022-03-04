@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FundooProject.Controllers
 {
@@ -215,16 +216,16 @@ namespace FundooProject.Controllers
         //Upload Image
         [Authorize]
         [HttpPost("UploadImage")]
-        public IActionResult AddImage(long noteId, IFormFile formFile)
+        public IActionResult AddImage(long noteId, IFormFile formFile )
         {
             try
             {
-                long userId = GetTokenId();
-                bool result = noteBL.AddImage(noteId, userId, formFile);
+                var userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "Id").Value);
+                var result = noteBL.AddImage(noteId, userId, formFile);
 
-                if (result == true)
+                if (result != null)
                 {
-                    return Ok(new { Success = true, message = "Image added Successfully." });
+                    return Ok(new { Success = true, message = "Image added Successfully.", data = result });
                 }
                 else
                 {
