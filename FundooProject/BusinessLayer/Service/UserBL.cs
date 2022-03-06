@@ -70,5 +70,19 @@ namespace BusinessLayer.Service
                 throw;
             }
         }
+
+        public bool DeleteUser(string email)
+        {
+            try
+            {
+
+                return userRL.DeleteUser(email);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

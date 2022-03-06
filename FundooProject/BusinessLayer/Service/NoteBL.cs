@@ -157,5 +157,78 @@ namespace BusinessLayer.Service
             }
         }
 
+        public bool DeleteForever(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.DeleteForever(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Restore(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.Restore(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool UnArchive(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.UnArchive(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool AddRemainder(long noteId, long userId, DateTime dateTime)
+        {
+            try
+            {
+                return noteRL.AddRemainder(noteId, userId, dateTime);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool DeleteRemainder(long noteId, long userId)
+        {
+            try
+            {
+                return noteRL.DeleteRemainder(noteId, userId);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool ChangeRemainder(long noteId, long userId, DateTime dateTime)
+        {
+            try
+            {
+                return noteRL.ChangeRemainder(noteId, userId, dateTime);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
     }
 }

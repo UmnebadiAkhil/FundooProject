@@ -237,6 +237,106 @@ namespace FundooProject.Controllers
                 throw;
             }
         }
+
+        //Trash/Delete
+        [Authorize]
+        [HttpDelete("Trash/Delete")]
+        public IActionResult DeleteForever(long noteId)
+        {
+            try
+            {
+                long userId = GetTokenId();
+                bool result = noteBL.DeleteForever(noteId, userId);
+
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Deleted forever from trash Successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Note deletion failed." });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
+
+        //Reminder
+        [Authorize]
+        [HttpDelete("Reminder")]
+        public IActionResult DeleteRemainder(long noteId)
+        {
+            try
+            {
+                long userId = GetTokenId();
+                bool result = noteBL.DeleteRemainder(noteId, userId);
+
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Note Reminder removed Successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "No Reminder is added to this note." });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
+
+        //Archive/Unarchive
+        [Authorize]
+        [HttpPut("Archive/Unarchive")]
+        public IActionResult Unarchive(long noteId)
+        {
+            try
+            {
+                long userId = GetTokenId();
+                bool result = noteBL.UnArchive(noteId, userId);
+
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Note Unarchived Successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "Unsuccessful" });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
+
+        //Reminder
+        [Authorize]
+        [HttpPut("Reminder")]
+        public IActionResult ChangeRemainder(long noteId, DateTime dateTime)
+        {
+            try
+            {
+                long userId = GetTokenId();
+                bool result = noteBL.ChangeRemainder(noteId, userId, dateTime);
+
+                if (result == true)
+                {
+                    return Ok(new { Success = true, message = "Note Reminder changed Successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { Success = false, message = "No Reminder is added to this note." });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Success = false, message = e.Message, stackTrace = e.StackTrace });
+            }
+        }
     }
  }
 

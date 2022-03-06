@@ -317,6 +317,151 @@ namespace RepositoryLayer.Service
             return result;
         }
 
-        
+        public bool DeleteForever(long noteId, long userId)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(note => note.IsTrash == true
+                                                                    && note.Id == userId
+                                                                    && note.NotesId == noteId);
+
+                if (result != null)
+                {
+                    fundooContext.NotesTable.Remove(result);
+                    fundooContext.SaveChanges();
+
+                    return true;
+                }
+                else { return false; }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Restore(long noteId, long userId)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId);
+
+                if (result != null)
+                {
+                    result.IsTrash = false;
+                    result.IsArchieve = false;
+
+                    result.ModifiedAt = DateTime.Now;
+                }
+                int changes = fundooContext.SaveChanges();
+
+                if (changes > 0) { return true; }
+
+                else { return false; }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool UnArchive(long noteId, long userId)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId);
+
+                if (result != null)
+                {
+                    result.IsArchieve = false;
+                    result.IsTrash = false;
+
+                    result.ModifiedAt = DateTime.Now;
+                }
+                int changes = fundooContext.SaveChanges();
+
+                if (changes > 0) return true;
+
+                else return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool AddRemainder(long noteId, long userId, DateTime dateTime)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId && e.Reminder == null);
+
+                if (result != null)
+                {
+                    result.Reminder = dateTime;
+
+                    result.ModifiedAt = DateTime.Now;
+                }
+                int changes = fundooContext.SaveChanges();
+
+                if (changes > 0) return true;
+
+                else return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool DeleteRemainder(long noteId, long userId)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId && e.Reminder != null);
+
+                if (result != null)
+                {
+                    
+                    result.ModifiedAt = DateTime.Now;
+                }
+                int changes = fundooContext.SaveChanges();
+
+                if (changes > 0) return true;
+
+                else return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool ChangeRemainder(long noteId, long userId, DateTime dateTime)
+        {
+            try
+            {
+                var result = fundooContext.NotesTable.FirstOrDefault(e => e.NotesId == noteId && e.Id == userId
+                                                                 && e.IsArchieve == false && e.IsTrash == false);
+
+                if (result != null)
+                {
+                    result.Reminder = dateTime;
+
+                    result.ModifiedAt = DateTime.Now;
+                }
+                int changes = fundooContext.SaveChanges();
+
+                if (changes > 0) return true;
+
+                else return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
     }
 }

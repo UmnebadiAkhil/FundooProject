@@ -29,11 +29,12 @@ namespace RepositoryLayer.Service
         {
             try
             {
+               
                 User newUser = new User();
                 newUser.FirstName = userRegist.FirstName;
                 newUser.LastName = userRegist.LastName;
                 newUser.Email = userRegist.Email;
-                newUser.Password = userRegist.Password;
+                newUser.Password = StringCipher.Encrypt(userRegist.Password);
                 fundooContext.UserTable.Add(newUser);
                 int result = fundooContext.SaveChanges();
                 if (result > 0)
@@ -51,11 +52,12 @@ namespace RepositoryLayer.Service
         {
             try
             {
+                string encryptedString = StringCipher.Encrypt(password);
                 //if Email and password is empty return null. 
                 if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                     return null;
                 //Linq query matches given input in database and returns that entry from the database.
-                var result = fundooContext.UserTable.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+                var result = fundooContext.UserTable.Where(x => x.Email == email && x.Password == encryptedString).FirstOrDefault();
                 var id = result.Id;
                 if (result != null)
                     //Calling Jwt Token Creation method and returning token.
@@ -142,6 +144,30 @@ namespace RepositoryLayer.Service
             var result = fundooContext.UserTable.FirstOrDefault(e => e.Email == email);
 
             return result;
+        }
+
+        public bool DeleteUser(string email)
+        {
+            try
+            {
+                var result = fundooContext.UserTable.Where(e => e.Email == email).FirstOrDefault();
+
+                if (result != null)
+                {
+                    fundooContext.UserTable.Remove(result);
+                    fundooContext.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

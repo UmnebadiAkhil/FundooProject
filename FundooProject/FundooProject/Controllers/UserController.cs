@@ -39,6 +39,7 @@ namespace FundooProject.Controllers
             }
         }
 
+        //User Login
         [HttpPost("Login")]
         public IActionResult Login(UserLogin userLogin)
         {
@@ -56,7 +57,7 @@ namespace FundooProject.Controllers
             }
         }
 
-        
+        //Forget Password
         [HttpPost("ForgetPassword")]
         public IActionResult ForgetPassword(string email)
         {
@@ -74,9 +75,9 @@ namespace FundooProject.Controllers
             }
         }
 
+        //Reset Password
         [Authorize]
         [HttpPut("ResetPassword")]
-   
         public IActionResult ResetPassword( string password, string newPassword)
         {
             try
@@ -86,6 +87,24 @@ namespace FundooProject.Controllers
                     return this.Ok(new { Success = true, message = "Password updated sucessfully"});
                 else
                     return this.BadRequest(new { Success = false, message = "Unable to reset password. Please try again!" });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Delete User
+        [Authorize]
+        [HttpDelete("Delete")]
+        public IActionResult DeleteUser(string email)
+        {
+            try
+            {
+                if (userBL.DeleteUser(email))
+                    return this.Ok(new { Success = true, message = "User deleted successful", data = userBL.DeleteUser(email) });
+                else
+                    return this.BadRequest(new { Success = false, message = "User not deleted " });
             }
             catch (Exception)
             {

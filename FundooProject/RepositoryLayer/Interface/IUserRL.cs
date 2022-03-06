@@ -13,6 +13,8 @@ namespace RepositoryLayer.Interface
         public string ForgetPassword(string email);
         public bool ResetPassword(string email, string password, string newPassword);
         public User GetEmail(string collabEmail);
+        public bool DeleteUser(string email);
+        
 
     }
 }
