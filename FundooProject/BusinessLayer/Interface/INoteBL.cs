@@ -26,6 +26,6 @@ namespace BusinessLayer.Interface
         public bool AddRemainder(long noteId, long userId, DateTime dateTime);
         public bool DeleteRemainder(long noteId, long userId);
         public bool ChangeRemainder(long noteId, long userId, DateTime dateTime);
-
+        public IEnumerable<Notes> GetAllNotes();
     }
 }

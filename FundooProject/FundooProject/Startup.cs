@@ -37,13 +37,19 @@ namespace FundooProject
         {
             services.AddDbContext<FundooContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:FundooDB"]));
             services.AddControllers();
+
             services.AddTransient<IUserBL, UserBL>();
             services.AddTransient<IUserRL, UserRL>();
+
             services.AddTransient<INoteBL, NoteBL>();
             services.AddTransient<INoteRL, NoteRL>();
+
             services.AddTransient<ICollaborationBL, CollaborationBL>();
             services.AddTransient<ICollaborationRL, CollaborationRL>();
-            services.AddTransient<IFileService, FileService>();
+
+            services.AddTransient<ILabelBL, LabelBL>();
+            services.AddTransient<ILabelRL, LabelRL>();
+       
             //Adding Swagger in Services Collection.
             services.AddSwaggerGen(c =>
             {
@@ -83,6 +89,11 @@ namespace FundooProject
                     IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])) //Configuration["JwtToken:SecretKey"]
                 };
             });
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = "localhost:6379";
+            });
+            services.AddMemoryCache();
         }
     
 

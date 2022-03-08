@@ -12,5 +12,6 @@ namespace BusinessLayer.Interface
         public List<Collaboration> GetCollab(long noteId, long userId);
 
         public bool RemoveCollab(long noteId, long userId, string collabEmail);
+        public IEnumerable<Collaboration> GetAllCollab();
     }
 }

@@ -71,6 +71,17 @@ namespace BusinessLayer.Service
             }
         }
 
+        public IEnumerable<Notes> GetAllNotes()
+        {
+            try
+            {
+                return noteRL.GetAllNotes();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public bool ChangeColor(long noteId, long userId, Note notesModel)
         {
             try

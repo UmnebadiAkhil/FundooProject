@@ -87,5 +87,24 @@ namespace RepositoryLayer.Service
             }
         }
 
+        public IEnumerable<Collaboration> GetAllCollab()
+        {
+            try
+            {
+                //Fetch All the details from Collab Table
+                var collabs = fundooContext.CollabTable.ToList();
+                if (collabs != null)
+                {
+                    return collabs;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -3,9 +3,14 @@ using CommonLayer.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
+using RepositoryLayer.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FundooProject.Controllers
@@ -16,9 +21,15 @@ namespace FundooProject.Controllers
     {
         private ICollaborationBL collaborationBL;
 
-        public CollaborationController(ICollaborationBL collaborationBL)
+        private readonly IMemoryCache memoryCache;
+
+        private readonly IDistributedCache distributedCache;
+
+        public CollaborationController(ICollaborationBL collaborationBL, IDistributedCache distributedCache, IMemoryCache memoryCache)
         {
             this.collaborationBL = collaborationBL;
+            this.memoryCache = memoryCache;
+            this.distributedCache = distributedCache;
         }
 
         private long GetTokenId()
@@ -80,7 +91,47 @@ namespace FundooProject.Controllers
             }
         }
 
-        
+        [HttpGet("GetAll")]
+        public IEnumerable<Collaboration> GetAllCollab()
+        {
+            try
+            {
+                var result = collaborationBL.GetAllCollab();
+                if (result != null)
+                    return result;
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        [HttpGet("redis")]
+        public async Task<IActionResult> GetAllCollabUsingRedisCache()
+        {
+            var cacheKey = "collabList";
+            string serializedcollabList;
+            var collabList = new List<Collaboration>();
+            var redisCollabList = await distributedCache.GetAsync(cacheKey);
+            if (redisCollabList != null)
+            {
+                serializedcollabList = Encoding.UTF8.GetString(redisCollabList);
+                collabList = JsonConvert.DeserializeObject<List<Collaboration>>(serializedcollabList);
+            }
+            else
+            {
+                collabList = (List<Collaboration>)collaborationBL.GetAllCollab();
+                serializedcollabList = JsonConvert.SerializeObject(collabList);
+                redisCollabList = Encoding.UTF8.GetBytes(serializedcollabList);
+                var options = new DistributedCacheEntryOptions()
+                    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(15))
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(2));
+                await distributedCache.SetAsync(cacheKey, redisCollabList, options);
+            }
+            return Ok(collabList);
+        }
+
         [Authorize]
         [HttpDelete("Remove")]
         public IActionResult RemoveCollab(long noteId, CollaborationModel collaborationModel)

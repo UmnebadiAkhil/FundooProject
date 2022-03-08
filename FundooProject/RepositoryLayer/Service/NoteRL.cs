@@ -131,6 +131,24 @@ namespace RepositoryLayer.Service
             }
         }
 
+        public IEnumerable<Notes> GetAllNotes()
+        {
+            try
+            {
+                //Fetch All the details from Notes Table
+                var notes = fundooContext.NotesTable.ToList();
+                if (notes != null)
+                {
+                    return notes;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         //Method to ChangeColor Details.
         public bool ChangeColor(long noteId, long userId, Note notesModel)
         {
